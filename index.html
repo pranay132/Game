@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090f1d"><meta name="description" content="HUNTZONE online multiplayer virtual survival game">
+<link rel="manifest" href="/manifest.json"><link rel="stylesheet" href="/style.css">
+<title>HUNTZONE — Virtual Survival</title>
+</head>
+<body>
+<div class="shell">
+<header><div class="brand"><span class="brand-mark">H</span><div><b>HUNTZONE</b><small>VIRTUAL SURVIVAL ARENA</small></div></div><div id="connection" class="pill muted">● CONNECTING</div></header>
+<main>
+<section id="home" class="panel hero">
+<div class="eyebrow">20 PLAYERS · 1 ARENA · ONE WINNING TEAM</div>
+<h1>RUN. HIDE.<br><span>SURVIVE.</span></h1>
+<p>Join a private arena, discover your secret role and outlast the opposing team. All movement takes place on a virtual game map.</p>
+<div class="form-grid"><label>Your player name<input id="playerName" maxlength="18" placeholder="Enter nickname" value="Player"></label><button id="createBtn" class="primary">CREATE PRIVATE ROOM</button></div>
+<div class="join-row"><input id="roomCode" maxlength="6" placeholder="ROOM CODE"><button id="joinBtn" class="secondary">JOIN ROOM</button></div>
+<div class="rules"><span>MIN 5 PLAYERS</span><span>MAX 20 PLAYERS</span><span>30 MINUTES</span><span>5 KM MAX ZONE</span></div>
+</section>
+<section id="lobby" class="panel hidden">
+<div class="section-head"><div><div class="eyebrow">PRIVATE MATCH</div><h2>Waiting room</h2></div><div class="room-code">ROOM <b id="roomLabel">------</b><button id="copyBtn" title="Copy room code">COPY</button></div></div>
+<div class="lobby-stats"><div><b id="lobbyCount">1/20</b><small>PLAYERS JOINED</small></div><div><b>5–20</b><small>PLAYER LIMIT</small></div><div><b>30:00</b><small>GAME LENGTH</small></div></div>
+<div id="playerList" class="player-list"></div>
+<p id="lobbyHint" class="hint">Waiting for at least 5 players. Share the room code with friends.</p>
+<button id="startBtn" class="primary full">START GAME</button>
+<button id="leaveBtn" class="text-btn">Leave room</button>
+</section>
+<section id="game" class="hidden">
+<div class="game-top">
+<div class="stat"><small>TIME LEFT</small><b id="timer">30:00</b></div>
+<div class="stat"><small>SURVIVORS LEFT</small><b id="survivorCount">—</b></div>
+<div class="stat"><small>HUNTERS LEFT</small><b id="hunterCount">—</b></div>
+<div class="stat"><small>NEXT ZONE</small><b id="zoneTimer">05:00</b></div>
+</div>
+<div class="arena-wrap">
+<div class="arena-title"><div><span class="live-dot"></span> LIVE VIRTUAL ARENA</div><span id="zoneLabel">SAFE ZONE · 5.0 KM</span></div>
+<div id="arena" class="arena"><div class="grid-lines"></div><div id="zoneCircle" class="zone-circle"></div><div id="playersLayer"></div><div class="map-center">ARENA<br>CENTRE</div></div>
+<div class="map-legend"><span><i class="dot you"></i>You</span><span><i class="dot hunter"></i>Hunter</span><span><i class="dot survivor"></i>Survivor</span><span><i class="dot danger"></i>Outside zone</span></div>
+</div>
+<div class="role-card" id="roleCard"><div class="eyebrow">YOUR SECRET ROLE</div><h2 id="roleName">SURVIVOR</h2><p id="roleHelp">Stay inside the safe zone and avoid hunters.</p></div>
+<div class="controls">
+<div><div class="eyebrow">VIRTUAL MOVEMENT</div><p>Move your avatar on the game map using the controls.</p></div>
+<div class="pad"><button data-dir="up">▲</button><div><button data-dir="left">◀</button><button data-dir="down">▼</button><button data-dir="right">▶</button></div></div>
+</div>
+<div id="hunterActions" class="panel hidden"><h3>Hunter actions</h3><p>Choose a nearby survivor marker to tag them in-game.</p><div id="targetList"></div></div>
+<div class="game-bottom"><div><b id="aliveCount">0</b><small>PLAYERS ALIVE</small></div><div><b id="stageLabel">ZONE 1 / 6</b><small>ZONE STAGE</small></div><div><b id="statusLabel">IN GAME</b><small>MATCH STATUS</small></div></div>
+</section>
+<section id="results" class="panel hidden"><div class="eyebrow">MATCH COMPLETE</div><h1 id="winnerTitle">SURVIVORS WIN</h1><p id="winnerText"></p><button id="homeBtn" class="primary full">BACK TO HOME</button></section>
+<div id="toast" role="status"></div>
+</main>
+<footer>HUNTZONE · Play fair. Stay safe. This is a virtual game, not a real-world chase.</footer>
+</div>
+<script src="/socket.io/socket.io.js"></script><script src="/app.js"></script>
+</body></html>

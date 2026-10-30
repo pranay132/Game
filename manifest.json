@@ -1,0 +1,10 @@
+{
+  "name":"HUNTZONE Virtual Survival",
+  "short_name":"HUNTZONE",
+  "start_url":"/",
+  "display":"standalone",
+  "background_color":"#080e19",
+  "theme_color":"#090f1d",
+  "description":"Multiplayer virtual-map survival game",
+  "icons":[]
+}
